@@ -1,4 +1,6 @@
 import "./root.css";
+import {Project} from "./constructors/Project.js";
+import {Task} from "./constructors/Task.js";
 import {domElements} from "./domElements.js";
 import {addDomEvents} from "./domEvents.js";
 import {colorThemes, colorThemesVariables} from "./colorThemes.js";
@@ -36,60 +38,21 @@ function toggleSidebarOpen() {
 
 /*
 the myProject array is the main entrypoint of the app,
-the myProject array will always contain an OBJECT, this object is the same as a project item,
-this project item will have 4 properties: {
-    name, STR
-    description, STR
-    selected, BOOL
-    tasks: ARRAY
-}
-
-the selected property is responsible for setting the selected project, ONLY 1 project can have the selected prop as true.
-the tasks array is responsible for the tasks of this project,
-the tasks array will always contain an object that acts as a task for the project it is in
-the task object contains the following: {
-    name, STR
-    description, STR
-    completed, BOOL
-}
+the myProject array will always contain an OBJECT, this object is the same as a project constructor object
 */
-let myProjects = [
+const myProjects = [
     // starter projects
-    {
-        name: "Home",
-        description: "Tasks for my home",
-        selected: true,
-        tasks: [
-            {
-                name: "Set up the garden",
-                description: "it will make my home look better",
-                completed: true,
-            },
-            {
-                name: "Decorate the kitchen",
-                description: "it will make my cooking experience better",
-                completed: false,
-            },
-        ],
-    },
-    {
-        name: "Work",
-        description: "Projects for work",
-        selected: false,
-        tasks: [
-            {
-                name: "Finish desiging the structure of the building",
-                description: "it will make my boss happy",
-                completed: true,
-            },
-            {
-                name: "Gather the materials needed to build",
-                description: "my boss will give me a raise",
-                completed: false,
-            },
-        ],
-    },
+    new Project("Home", "Tasks for my home", true, [
+        new Task("Set up the garden", "It will make my home look better", true),
+        new Task("Decorate the kitchen", "it will make my cooking experience better", false),
+    ]),
+    new Project("Work", "Tasks for work", false, [
+        new Task("Finish desiging the structure of the buildingn", "It will make my boss happy", true),
+        new Task("Gather the materials needed to build", "My boss will give me a raise", false),
+    ]),
 ];
+
+console.log(myProjects);
 
 window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("input").forEach(input => {
@@ -217,5 +180,5 @@ function loadColorTheme() {
 };
 
 export {
-    userInfo, toggleSidebarOpenVar, toggleSidebarOpen, loadAfterNewUserForm,
+    userInfo, myProjects, toggleSidebarOpenVar, toggleSidebarOpen, loadAfterNewUserForm, renderProjectsToNavigation
 };

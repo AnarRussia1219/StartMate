@@ -1,4 +1,4 @@
-import {toggleSidebarOpenVar, toggleSidebarOpen, userInfo, loadAfterNewUserForm} from ".";
+import {toggleSidebarOpenVar, toggleSidebarOpen, userInfo, myProjects, loadAfterNewUserForm, renderProjectsToNavigation} from ".";
 
 function addDomEvents() {
     ////// CLOSING AND OPENING THE SIDEBAR //////
@@ -11,6 +11,15 @@ function addDomEvents() {
     document.getElementById("page-top-row-options-open-sidebar").addEventListener("click", () => {
         toggleSidebarOpenVar();
         toggleSidebarOpen();
+    });
+
+    ////// SIDEBAR ELEMENTS //////
+    // add project div
+    document.getElementById("page-navigation-navigations-add-task").addEventListener("click", () => {
+        myProjects.push({
+            name: 1,
+        });
+        renderProjectsToNavigation();
     });
 
     ////// NEW USER FORM CARD //////
