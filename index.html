@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./build/build.js"></script>
+</head>
+<body>
+    <nav class="page-navigation" id="page-navigation" role="navigation">
+        <div id="page-navigation-overlay">
+            <div class="page-navigation-contents-positioner">
+                <div class="page-navigation-top-options">
+                    <div class="page-navigation-top-options-block">
+                        <span id="page-navigation-top-profile-name"></span>
+                    </div>
+                    <div class="page-navigation-top-options-block cursor-pointer" id="page-navigation-top-options-close-sidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19 4.001H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-12a2 2 0 0 0-2-2Zm-15 2a1 1 0 0 1 1-1h4v14H5a1 1 0 0 1-1-1v-12Zm6 13h9a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1h-9v14Z"></path></svg>
+                        <div class="tooltip">
+                            Close sidebar
+                        </div>
+                    </div>
+                </div>
+                <div class="page-navigation-navigations">
+                    <div class="page-navigation-navigations-row cursor-pointer" id="page-navigation-navigations-add-task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11Zm-.711-16.5a.75.75 0 1 1 1.5 0v4.789H17.5a.75.75 0 0 1 0 1.5h-4.711V17.5a.75.75 0 0 1-1.5 0V12.79H6.5a.75.75 0 1 1 0-1.5h4.789V6.5Z" clip-rule="evenodd"></path></svg>
+                        <span>Add project</span>
+                        <div class="tooltip">
+                            Add a new project
+                        </div>
+                    </div>
+                    <div id="page-navigation-navigations-blocks">
+                        <div class="page-navigation-navigations-row cursor-pointer" id="page-navigation-navigations-search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M16.29 15.584a7 7 0 1 0-.707.707l3.563 3.563a.5.5 0 0 0 .708-.707l-3.563-3.563ZM11 17a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" clip-rule="evenodd"></path></svg>
+                            <span>Search</span>
+                            <div class="tooltip">
+                                Search between tasks
+                            </div>
+                        </div>
+                        <div class="page-navigation-navigations-row cursor-pointer" id="page-navigation-navigations-today">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M8.062 4h7.876a2 2 0 0 1 1.94 1.515l2.062 8.246c.04.159.06.322.06.486V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3.754a2 2 0 0 1 .06-.485L6.12 5.515A2 2 0 0 1 8.061 4Zm0 1a1 1 0 0 0-.97.758L5.03 14.004h4.78a.5.5 0 0 1 .44.496 1.75 1.75 0 1 0 3.5 0 .5.5 0 0 1 .44-.496h4.78L16.91 5.758a1 1 0 0 0-.97-.758H8.061Z" clip-rule="evenodd"></path></svg>
+                            <span>Today</span>
+                            <div class="tooltip">
+                                See the tasks you need to complete today
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-navigation-navigations-row cursor-pointer" id="page-navigation-label-my-projects">
+                        <span>My projects</span>
+                    </div>
+                    <div id="page-navigation-projects-viewer"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="page-contents">
+        <div class="page-contents-positioner">
+            <div class="page-top-row-options">
+                <div class="page-top-row-options-block cursor-pointer" id="page-top-row-options-open-sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19 4.001H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-12a2 2 0 0 0-2-2Zm-15 2a1 1 0 0 1 1-1h4v14H5a1 1 0 0 1-1-1v-12Zm6 13h9a1 1 0 0 0 1-1v-12a1 1 0 0 0-1-1h-9v14Z"></path></svg>
+                    <div class="tooltip">
+                        Open sidebar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="new-user-form-card-backdrop">
+        <form action="#" id="new-user-form-card" class="card" role="form">
+            <header>
+                Looks like you are new? Well, anyone can use StartMate.
+            </header>
+            <div class="new-user-form-card-inputs">
+                <div class="new-user-form-card-inputs-block">
+                    <label for="new-user-form-card-first-name-input">
+                        FIRST NAME
+                    </label>
+                    <input type="text" id="new-user-form-card-first-name-input" placeholder="First Name" required>
+                </div>
+                <div class="new-user-form-card-inputs-block">
+                    <label for="new-user-form-card-last-name-input">
+                        LAST NAME
+                    </label>
+                    <input type="text" id="new-user-form-card-last-name-input" placeholder="Last Name">
+                </div>
+            </div>
+            <button type="submit" id="new-user-form-card-submit-btn">Start!</button>
+        </form>
+    </div>
+</body>
+</html>
